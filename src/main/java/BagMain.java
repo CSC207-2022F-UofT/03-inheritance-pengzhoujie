@@ -41,6 +41,7 @@ class BagMain {
                 count += ((CrossbodyBag) bags[i]).getNumberOfStraps();
             }
         }
+
        return count;
     }
 }
