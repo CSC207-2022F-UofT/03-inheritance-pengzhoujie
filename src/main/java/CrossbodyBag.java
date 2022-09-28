@@ -17,7 +17,7 @@
  *           2. an int for the capacity
  *           3. an int for the number of straps
  *
- *       CrossbodyBag should also have a getter method called getNumberOfStraps
+ *       CrossbodyBag should also have a getter method called getNumberOfStraps,
  *       and it should implement the enhance method.
  *
  *       The enhance method should increase the capacity of the CrossbodyBag by
@@ -30,3 +30,22 @@
  *
  *       See the tests in test/CrossBodyBagTest.java for examples.
  */
+public class CrossbodyBag extends Bag{
+     private int numberOfStraps;
+    public CrossbodyBag(String a, int b, int c) {
+        super(a, b);
+        this.numberOfStraps = c;
+    }
+    int getNumberOfStraps(){
+        return this.numberOfStraps;
+    }
+    @Override
+    public void enhance() {
+        this.increaseCapacity(2);
+    }
+    @Override
+    public String toString(){
+        return this.getColor() + "Crossbody Bag with ("+ this.numberOfStraps +") straps" + "/ " +
+                this.getCapacity() + ")";
+    }
+}
