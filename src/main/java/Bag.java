@@ -33,7 +33,7 @@ public abstract class Bag {
         this.color = a;
         this.capacity = b;
         this.numberOfContents = 0;
-        this.contents = new String[this.capacity];
+        this.contents = new String[b];
 
     }
 
@@ -83,9 +83,9 @@ public abstract class Bag {
      *       and false otherwise.
      */
     boolean addItem(String a){
-        if (this.numberOfContents + 1 < this.capacity){
+        if (this.numberOfContents + 1 <= this.capacity){
             this.numberOfContents += 1;
-            this.contents[numberOfContents] = a;
+            this.contents[numberOfContents - 1] = a;
             return true;
         }else {
             return false;
@@ -110,7 +110,7 @@ public abstract class Bag {
      String popItem(){
          if (this.numberOfContents != 0){
              String a = this.contents[this.numberOfContents];
-             this.contents[this.numberOfContents] = null;
+             this.contents[this.numberOfContents - 1 ] = "";
              return a;
          }else{
              return null;
