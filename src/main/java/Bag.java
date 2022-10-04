@@ -64,8 +64,8 @@ public abstract class Bag {
      * TODO: Create a setter function called setColor which sets the
      *       color of this bag to the given color.
      */
-    void setColor(){
-        this.color = getColor();
+    void setColor(String a){
+        this.color = a;
     }
 
 
@@ -109,8 +109,9 @@ public abstract class Bag {
      */
      String popItem(){
          if (this.numberOfContents != 0){
-             String a = this.contents[this.numberOfContents];
+             String a = this.contents[this.numberOfContents - 1];
              this.contents[this.numberOfContents - 1 ] = "";
+             this.numberOfContents -= 1;
              return a;
          }else{
              return null;
@@ -128,9 +129,9 @@ public abstract class Bag {
      */
     public void increaseCapacity(int n) {
         // TODO: Implement this method.
-        this.capacity = n + capacity;
+        this.capacity += n;
         String [] copy = this.contents.clone();
-        String[] new_array = new String[n + capacity];
+        String[] new_array = new String[this.capacity];
         this.contents = new_array;
         for (int i = 0; i< copy.length; i++){
             this.addItem(copy[i]);
